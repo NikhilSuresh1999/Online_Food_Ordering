@@ -48,6 +48,8 @@
 <br>
 <input type="submit" value="register"/>
 <br>
+<br>
+<a href="login.jsp">already registerd click here..</a>
 
 
 
