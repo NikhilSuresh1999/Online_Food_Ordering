@@ -39,5 +39,35 @@ public class DataInjector {
 		}
 		return regstatus;
 	}
+	
+	public static void addhotel(String hname,String address,String category)
+	{
+		String Driver="oracle.jdbc.driver.OracleDriver";
+		String url="jdbc:oracle:thin:@localhost:1521:xe";
+		String user="system";
+		String pass="system";
+		String sql="insert into hotels values(hotel_id.nextval,?,?,?)";
+		
+		try
+		{
+			Class.forName(Driver);
+			Connection con=DriverManager.getConnection(url,user,pass);
+			PreparedStatement ps=con.prepareStatement(sql);
+			
+			ps.setString(1, hname);
+			ps.setString(2, address);
+			ps.setString(3, category);
+			
+			
+			ps.executeUpdate();
+		
+	}catch(Exception e)
+		{
+		System.out.println("error in insertion"+ e);
+		e.printStackTrace();
+		
+	}
+	}
+	
 
 }
